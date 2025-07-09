@@ -1,0 +1,22 @@
+[build]
+  command = "cd client && npm install && npm run build && cd .."
+  publish = "client/dist"
+  functions = "functions"
+
+[build.environment]
+  NODE_VERSION = "18.0.0"
+  NPM_VERSION = "9.0.0"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "same-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.netlify.app;"
