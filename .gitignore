@@ -5,6 +5,7 @@ client/node_modules/
 # Build outputs
 client/dist/
 coverage/
+__tests__/
 
 # Environment variables
 .env
@@ -35,3 +36,6 @@ yarn-error.log*
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Local Netlify folder
+.netlify
